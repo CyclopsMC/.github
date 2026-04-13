@@ -11,6 +11,13 @@
   <version>1.20.1</version>
   <packaging>pom</packaging>
 
+  <repositories>
+    <repository>
+      <id>cyclopsmc-github</id>
+      <url>https://maven.pkg.github.com/CyclopsMC/packages</url>
+    </repository>
+  </repositories>
+
   <!-- Note: 1.20.1 mods use the legacy Maven artifact format where the artifact ID is
        the lowercase mod name and the version includes the Minecraft version prefix. -->
   <dependencies>
