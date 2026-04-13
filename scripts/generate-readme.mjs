@@ -15,23 +15,23 @@ const ROOT = join(__dirname, '..');
 
 // Map from groupId prefix (after "org.cyclops.") to CurseForge slug and display name
 const MOD_INFO = {
-  cyclopscore:       { slug: 'cyclops-core',        name: 'CyclopsCore',         github: 'CyclopsCore' },
-  flopper:           { slug: 'flopper',              name: 'Flopper',             github: 'Flopper' },
-  structuredcrafting:{ slug: 'structured-crafting',  name: 'StructuredCrafting',  github: 'StructuredCrafting' },
-  commoncapabilities:{ slug: 'common-capabilities',  name: 'CommonCapabilities',  github: 'CommonCapabilities' },
-  capabilityproxy:   { slug: 'capabilityproxy',      name: 'CapabilityProxy',     github: 'CapabilityProxy' },
-  everlastingabilities:{ slug: 'everlastingabilities', name: 'EverlastingAbilities', github: 'EverlastingAbilities' },
-  energeticsheep:    { slug: 'energeticsheep',       name: 'EnergeticSheep',      github: 'EnergeticSheep' },
-  colossalchests:    { slug: 'colossal-chests',      name: 'ColossalChests',      github: 'ColossalChests' },
-  iconexporter:      { slug: 'iconexporter',         name: 'IconExporter',        github: 'IconExporter' },
-  integrateddynamics:{ slug: 'integrated-dynamics',  name: 'IntegratedDynamics',  github: 'IntegratedDynamics' },
-  integratedtunnels: { slug: 'integrated-tunnels',   name: 'IntegratedTunnels',   github: 'IntegratedTunnels' },
-  integratedcrafting:{ slug: 'integrated-crafting',  name: 'IntegratedCrafting',  github: 'IntegratedCrafting' },
-  integratedterminals:{ slug: 'integrated-terminals', name: 'IntegratedTerminals', github: 'IntegratedTerminals' },
-  integratedscripting:{ slug: 'integrated-scripting', name: 'IntegratedScripting', github: 'IntegratedScripting' },
-  integratedrest:    { slug: 'integrated-rest',      name: 'IntegratedREST',      github: 'IntegratedREST' },
-  integratedmekanism:{ slug: 'integrated-mekanism',  name: 'IntegratedMekanism',  github: 'IntegratedMekanism' },
-  evilcraft:         { slug: 'evilcraft',            name: 'EvilCraft',           github: 'EvilCraft' },
+  cyclopscore:       { slug: 'cyclops-core',        name: 'CyclopsCore',         github: 'CyclopsCore',         modrinth: 'Z9DM0LJ4' },
+  flopper:           { slug: 'flopper',              name: 'Flopper',             github: 'Flopper',             modrinth: 'aTMAqQMY' },
+  structuredcrafting:{ slug: 'structured-crafting',  name: 'StructuredCrafting',  github: 'StructuredCrafting',  modrinth: 'GTi2kHAW' },
+  commoncapabilities:{ slug: 'common-capabilities',  name: 'CommonCapabilities',  github: 'CommonCapabilities',  modrinth: 'oFXrCkDI' },
+  capabilityproxy:   { slug: 'capabilityproxy',      name: 'CapabilityProxy',     github: 'CapabilityProxy',     modrinth: '3mPgwv8n' },
+  everlastingabilities:{ slug: 'everlastingabilities', name: 'EverlastingAbilities', github: 'EverlastingAbilities', modrinth: 'xDwJf4pi' },
+  energeticsheep:    { slug: 'energeticsheep',       name: 'EnergeticSheep',      github: 'EnergeticSheep',      modrinth: 'TC6LFnue' },
+  colossalchests:    { slug: 'colossal-chests',      name: 'ColossalChests',      github: 'ColossalChests',      modrinth: 'V8HM9qmm' },
+  iconexporter:      { slug: 'iconexporter',         name: 'IconExporter',        github: 'IconExporter',        modrinth: '8KCmS7Bd' },
+  integrateddynamics:{ slug: 'integrated-dynamics',  name: 'IntegratedDynamics',  github: 'IntegratedDynamics',  modrinth: 'yYzdQHJI' },
+  integratedtunnels: { slug: 'integrated-tunnels',   name: 'IntegratedTunnels',   github: 'IntegratedTunnels',   modrinth: 'Etqy1Omb' },
+  integratedcrafting:{ slug: 'integrated-crafting',  name: 'IntegratedCrafting',  github: 'IntegratedCrafting',  modrinth: 'qwpACdla' },
+  integratedterminals:{ slug: 'integrated-terminals', name: 'IntegratedTerminals', github: 'IntegratedTerminals', modrinth: 'HmLJoQ1K' },
+  integratedscripting:{ slug: 'integrated-scripting', name: 'IntegratedScripting', github: 'IntegratedScripting', modrinth: 'uDJkuFRe' },
+  integratedrest:    { slug: 'integrated-rest',      name: 'IntegratedREST',      github: 'IntegratedREST',      modrinth: 'ovubcV3F' },
+  integratedmekanism:{ slug: 'integrated-mekanism',  name: 'IntegratedMekanism',  github: 'IntegratedMekanism',  modrinth: 'NknNmkiU' },
+  evilcraft:         { slug: 'evilcraft',            name: 'EvilCraft',           github: 'EvilCraft',           modrinth: '3ANq2btA' },
 };
 
 // Canonical mod display order
@@ -233,7 +233,9 @@ function generateTable(modData) {
     if (!info) continue;
 
     const githubUrl = `https://github.com/CyclopsMC/${info.github}/`;
-    const modName = `[${info.name}](${githubUrl})`;
+    const cfUrl = `https://www.curseforge.com/minecraft/mc-mods/${info.slug}`;
+    const mrUrl = `https://modrinth.com/mod/${info.modrinth}`;
+    const modName = `[${info.name}](${githubUrl}) ([CurseForge](${cfUrl}), [Modrinth](${mrUrl}))`;
 
     const cells = MC_VERSIONS.map(({ mc }) => {
       const mcData = modData[modKey]?.[mc];
