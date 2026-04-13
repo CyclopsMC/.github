@@ -77,7 +77,7 @@ function parsePom(pomPath, loader) {
 
     let semver;
     // New format: artifactId contains "-{mc}-{loader}", version is "{semver}-{build}"
-    if (artifactId.includes('-' + loader) || artifactId.match(/-\d+\.\d+[\d.]*-/)) {
+    if (artifactId.endsWith('-' + loader)) {
       semver = rawVersion.replace(/-\d+$/, ''); // strip trailing build number
     } else {
       // Old format: version is "{mc}-{semver}-{build}"
@@ -222,8 +222,9 @@ function formatCell(mcVersionData) {
  * Generate the table rows for all mods.
  */
 function generateTable(modData) {
-  const header = `| Mod name                                                 | MC 1.20.1 (\`1.20-lts\`) | MC 1.21.1 (\`1.21-lts\`)    | MC 26.1.1 (\`26\`)          |`;
-  const separator = `| -------------------------------------------------------- | ----------------------------- | -------------------------------- | -------------------------------- |`;
+  const mcHeaders = MC_VERSIONS.map(({ mc, label }) => `MC ${mc} (${label})`);
+  const header = `| Mod name | ${mcHeaders.join(' | ')} |`;
+  const separator = `| -------- | ${mcHeaders.map(() => '-------').join(' | ')} |`;
 
   const rows = [header, separator];
 

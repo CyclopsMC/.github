@@ -17,6 +17,11 @@
       "automergeType": "branch"
     },
     {
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["major"],
+      "enabled": true
+    },
+    {
       "matchManagers": ["maven"],
       "automerge": true,
       "automergeType": "branch"
@@ -26,10 +31,5 @@
       "matchPackagePrefixes": ["org.cyclops."],
       "groupName": "Cyclops packages"
     }
-  ],
-  "github-actions": {
-      "major": {
-          "enabled": true
-      }
-  }
+  ]
 }
