@@ -1,6 +1,9 @@
 name: "Update README"
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "0 6 * * *"
   workflow_dispatch:
@@ -8,6 +11,7 @@ on:
 jobs:
   update-readme:
     name: Update README
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     permissions:
       contents: write
