@@ -3,7 +3,7 @@ name: "Update README"
 on:
   push:
     branches:
-      - main
+      - master
   schedule:
     - cron: "0 6 * * *"
   workflow_dispatch:
