@@ -22,7 +22,7 @@
     <dependency>
       <groupId>org.cyclops.cyclopscore</groupId>
       <artifactId>cyclopscore-26.1.1-fabric</artifactId>
-      <version>1.29.1-996</version>
+      <version>1.29.2-999</version>
     </dependency>
 
     <dependency>
