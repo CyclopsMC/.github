@@ -1,5 +1,8 @@
 ## Currently maintained mods
 
+<details>
+<summary>Mod versions</summary>
+
 | Mod name | MC 1.20.1 (`1.20-lts`) | MC 1.21.1 (`1.21-lts`) | MC 26.1.1 (`26`) |
 | -------- | ------- | ------- | ------- |
 | [CyclopsCore](https://github.com/CyclopsMC/CyclopsCore/) ([CurseForge](https://www.curseforge.com/minecraft/mc-mods/cyclops-core), [Modrinth](https://modrinth.com/mod/Z9DM0LJ4)) | 1.22.0 ([Forge](https://www.curseforge.com/minecraft/mc-mods/cyclops-core/files/7637992)) | 1.29.0 ([NeoForge](https://www.curseforge.com/minecraft/mc-mods/cyclops-core/files/7637998), [Forge](https://www.curseforge.com/minecraft/mc-mods/cyclops-core/files/7637997), [Fabric](https://www.curseforge.com/minecraft/mc-mods/cyclops-core/files/7637999)) | 1.29.1 ([NeoForge](https://www.curseforge.com/minecraft/mc-mods/cyclops-core/files/7914305), [Forge](https://www.curseforge.com/minecraft/mc-mods/cyclops-core/files/7914304), [Fabric](https://www.curseforge.com/minecraft/mc-mods/cyclops-core/files/7914306)) |
@@ -19,3 +22,5 @@
 | [IntegratedREST](https://github.com/CyclopsMC/IntegratedREST/) ([CurseForge](https://www.curseforge.com/minecraft/mc-mods/integrated-rest), [Modrinth](https://modrinth.com/mod/ovubcV3F)) | 1.1.11 ([Forge](https://www.curseforge.com/minecraft/mc-mods/integrated-rest/files/5242642)) | 1.1.15 ([NeoForge](https://www.curseforge.com/minecraft/mc-mods/integrated-rest/files/6636773)) | 1.1.15 ([NeoForge](https://www.curseforge.com/minecraft/mc-mods/integrated-rest/files/7904553)) |
 | [IntegratedMekanism](https://github.com/CyclopsMC/IntegratedMekanism/) ([CurseForge](https://www.curseforge.com/minecraft/mc-mods/integrated-mekanism), [Modrinth](https://modrinth.com/mod/NknNmkiU)) | 1.0.4 (Forge) | 1.0.4 (NeoForge) | N/A |
 | [EvilCraft](https://github.com/CyclopsMC/EvilCraft/) ([CurseForge](https://www.curseforge.com/minecraft/mc-mods/evilcraft), [Modrinth](https://modrinth.com/mod/3ANq2btA)) | 1.2.30 ([Forge](https://www.curseforge.com/minecraft/mc-mods/evilcraft/files/4768378)) | 1.2.85 ([NeoForge](https://www.curseforge.com/minecraft/mc-mods/evilcraft/files/7911484)) | 1.2.85 ([NeoForge](https://www.curseforge.com/minecraft/mc-mods/evilcraft/files/7911491)) |
+
+</details>
