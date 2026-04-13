@@ -118,7 +118,7 @@
     <dependency>
       <groupId>org.cyclops.evilcraft</groupId>
       <artifactId>evilcraft-1.21.1-neoforge</artifactId>
-      <version>1.2.85-851</version>
+      <version>1.2.85-861</version>
     </dependency>
   
   </dependencies>
