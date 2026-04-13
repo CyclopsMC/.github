@@ -1,0 +1,35 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "enabledManagers": ["maven", "github-actions"],
+  "hostRules": [
+    {
+      "matchHost": "https://maven.pkg.github.com/CyclopsMC/packages",
+      "token": "{{ secrets.RENOVATE_GITHUB_COM_TOKEN }}"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["major"],
+      "enabled": true
+    },
+    {
+      "matchManagers": ["maven"],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "matchManagers": ["maven"],
+      "matchPackagePrefixes": ["org.cyclops."],
+      "groupName": "Cyclops packages"
+    }
+  ]
+}
