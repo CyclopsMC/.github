@@ -230,6 +230,17 @@ function generateTable(modData, cfFiles) {
     rows.push(`| ${modName} | ${cells.join(' | ')} |`);
   }
 
+  // Totals row: count loader instances per MC version
+  const totalCells = MC_VERSIONS.map(({ mc }) => {
+    let count = 0;
+    for (const modKey of MOD_ORDER) {
+      const mcData = modData[modKey]?.[mc];
+      if (mcData) count += Object.keys(mcData).length;
+    }
+    return `**${count}**`;
+  });
+  rows.push(`| **Total** | ${totalCells.join(' | ')} |`);
+
   return rows.join('\n');
 }
 
