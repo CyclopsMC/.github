@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 /**
  * Regenerates the mod version table in profile/README.md based on the modpack pom.xml files.
- * For each loader entry, it also fetches CurseForge download links from the CyclopsMC/Versions repo.
  *
  * Usage: node scripts/generate-readme.mjs
  */
@@ -52,12 +51,22 @@ const MC_VERSIONS = [
 
 const LOADERS = ['neoforge', 'forge', 'fabric'];
 
+const LOADER_TAGS = {
+  neoforge: 'NeoForge',
+  forge: 'Forge',
+  fabric: 'Fabric',
+};
+
 /**
- * Parse a pom.xml file and return a map of modKey -> { version, loader }.
- * Handles both new format (artifactId = "{mod}-{mc}-{loader}", version = "{semver}-{build}")
- * and old format (artifactId = "{mod}", version = "{mc}-{semver}-{build}").
+ * Parse a pom.xml file and return a map of modKey -> { displayVersion, cfVersion, loader }.
+ * - displayVersion: full version string including build number (for display in the README)
+ * - cfVersion: semver without build number (for matching against CurseForge file names)
+ *
+ * Handles both:
+ *   - New format: artifactId = "{mod}-{mc}-{loader}", version = "{semver}-{build}"
+ *   - Old format: artifactId = "{mod}", version = "{mc}-{semver}-{build}" or "{semver}-{build}"
  */
-function parsePom(pomPath, loader) {
+function parsePom(pomPath, loader, mc) {
   let content;
   try {
     content = readFileSync(pomPath, 'utf-8');
@@ -71,157 +80,133 @@ function parsePom(pomPath, loader) {
   while ((match = depRegex.exec(content)) !== null) {
     const modKey = match[2]; // e.g. "cyclopscore"
     const artifactId = match[3]; // e.g. "cyclopscore-1.21.1-neoforge" or "cyclopscore"
-    const rawVersion = match[4]; // e.g. "1.29.0-962" or "1.20.1-1.22.0-1"
+    const rawVersion = match[4]; // e.g. "1.29.0-962" or "1.20.1-1.22.0-949"
 
     if (!MOD_INFO[modKey]) continue;
 
-    let semver;
-    // New format: artifactId contains "-{mc}-{loader}", version is "{semver}-{build}"
+    let displayVersion, cfVersion;
+
     if (artifactId.endsWith('-' + loader)) {
-      semver = rawVersion.replace(/-\d+$/, ''); // strip trailing build number
+      // New format: version is "{semver}-{build}"
+      displayVersion = rawVersion;
+      cfVersion = rawVersion.replace(/-\d+$/, ''); // strip trailing build number for CurseForge lookup
     } else {
-      // Old format: version is "{mc}-{semver}-{build}"
-      // Strip leading "{mc}-" prefix and trailing "-{build}"
-      semver = rawVersion.replace(/^\d+\.\d+[\d.]+-/, '').replace(/-\d+$/, '');
+      // Old format: version is either "{mc}-{semver}-{build}" or "{semver}-{build}"
+      // Distinguish by checking whether the version actually starts with the known mc prefix.
+      if (rawVersion.startsWith(mc + '-')) {
+        const withoutMc = rawVersion.slice(mc.length + 1); // e.g. "1.22.0-949"
+        displayVersion = withoutMc;
+        cfVersion = withoutMc.replace(/-\d+$/, ''); // e.g. "1.22.0"
+      } else {
+        // Version is "{semver}-{build}" directly (e.g. IntegratedDynamics "1.21.2-735")
+        displayVersion = rawVersion;
+        cfVersion = rawVersion.replace(/-\d+$/, '');
+      }
     }
 
-    deps[modKey] = { semver, loader };
+    deps[modKey] = { displayVersion, cfVersion, loader };
   }
   return deps;
 }
 
 /**
- * Fetch the CurseForge update JSON for a mod/loader from the CyclopsMC/Versions GitHub repo.
- * Returns the parsed JSON or null on failure.
- */
-async function fetchVersionsJson(loaderType, slug) {
-  const url = `https://raw.githubusercontent.com/CyclopsMC/Versions/master/${loaderType}_update/${slug}.json`;
-  try {
-    const response = await fetch(url, { signal: AbortSignal.timeout(10000) });
-    if (!response.ok) return null;
-    return await response.json();
-  } catch {
-    return null;
-  }
-}
-
-/**
- * Look up a CurseForge download URL for a given MC version and mod semver.
- * The versionsJson is the parsed update JSON from CyclopsMC/Versions.
- */
-function getCurseForgeUrl(versionsJson, mcVersion, semver) {
-  if (!versionsJson) return null;
-  const mcEntry = versionsJson[mcVersion];
-  if (!mcEntry) return null;
-  const entry = mcEntry[semver];
-  if (!entry) return null;
-  // Entry is like "Download and changelog available at https://www.curseforge.com/..."
-  const urlMatch = entry.match(/https:\/\/www\.curseforge\.com\/[^\s]+/);
-  return urlMatch ? urlMatch[0] : null;
-}
-
-/**
  * Collect all mod data across MC versions and loaders.
- * Returns: Map<modKey, Map<mcVersion, Map<loader, {semver, cfUrl}>>>
+ * Returns: Map<modKey, Map<mcVersion, Map<loader, { displayVersion, cfVersion }>>>
  */
-async function collectModData() {
-  // Step 1: Parse all pom files
-  const rawData = {}; // modKey -> mcVersion -> loader -> semver
+function collectModData() {
+  const result = {};
   for (const { mc } of MC_VERSIONS) {
     for (const loader of LOADERS) {
       const pomPath = join(ROOT, 'modpacks', 'cyclops-all', mc, loader, 'pom.xml');
-      const deps = parsePom(pomPath, loader);
+      const deps = parsePom(pomPath, loader, mc);
       if (!deps) continue;
-      for (const [modKey, { semver }] of Object.entries(deps)) {
-        if (!rawData[modKey]) rawData[modKey] = {};
-        if (!rawData[modKey][mc]) rawData[modKey][mc] = {};
-        rawData[modKey][mc][loader] = semver;
+      for (const [modKey, { displayVersion, cfVersion }] of Object.entries(deps)) {
+        if (!result[modKey]) result[modKey] = {};
+        if (!result[modKey][mc]) result[modKey][mc] = {};
+        result[modKey][mc][loader] = { displayVersion, cfVersion };
       }
     }
   }
-
-  // Step 2: Fetch CurseForge URLs for all needed mod/loader/version combos
-  // Collect unique (loaderType, slug, mcVersion, semver) combos
-  const cfCache = {}; // "loaderType:slug" -> versionsJson
-
-  async function getVersionsJson(loaderType, slug) {
-    const key = `${loaderType}:${slug}`;
-    if (!(key in cfCache)) {
-      cfCache[key] = await fetchVersionsJson(loaderType, slug);
-    }
-    return cfCache[key];
-  }
-
-  // Fetch all needed JSONs in parallel
-  const fetchPromises = [];
-  for (const modKey of MOD_ORDER) {
-    const info = MOD_INFO[modKey];
-    if (!info) continue;
-    for (const loaderType of ['forge', 'neoforge', 'fabric']) {
-      fetchPromises.push(getVersionsJson(loaderType, info.slug));
-    }
-  }
-  await Promise.all(fetchPromises);
-
-  // Step 3: Build final data with CurseForge URLs
-  const result = {}; // modKey -> mcVersion -> loader -> { semver, cfUrl }
-  for (const modKey of MOD_ORDER) {
-    const info = MOD_INFO[modKey];
-    if (!info || !rawData[modKey]) continue;
-    result[modKey] = {};
-    for (const { mc } of MC_VERSIONS) {
-      if (!rawData[modKey][mc]) continue;
-      result[modKey][mc] = {};
-      for (const loader of LOADERS) {
-        const semver = rawData[modKey][mc]?.[loader];
-        if (!semver) continue;
-        const versionsJson = await getVersionsJson(loader, info.slug);
-        const cfUrl = getCurseForgeUrl(versionsJson, mc, semver);
-        result[modKey][mc][loader] = { semver, cfUrl };
-      }
-    }
-  }
-
   return result;
 }
 
 /**
- * Format a cell value for the table, showing version with loader download links.
- * Example: "1.29.0 ([NeoForge](url), [Forge](url), [Fabric](url))"
- * If no CurseForge URL is available, falls back to the loader name without a link.
+ * Fetch all files for every mod from the cfwidget API.
+ * Returns: Map<slug, files[]>
  */
-function formatCell(mcVersionData) {
-  if (!mcVersionData || Object.keys(mcVersionData).length === 0) return 'N/A';
+async function fetchAllCurseForgeData() {
+  const slugs = [...new Set(Object.values(MOD_INFO).map(i => i.slug))];
+  const result = {};
+  for (const slug of slugs) {
+    const url = `https://api.cfwidget.com/minecraft/mc-mods/${slug}`;
+    console.log(`  Fetching CurseForge data for ${slug}...`);
+    const response = await fetch(url);
+    if (!response.ok) {
+      console.warn(`  Warning: could not fetch ${url} (${response.status})`);
+      result[slug] = [];
+      continue;
+    }
+    const data = await response.json();
+    result[slug] = data.files || [];
+  }
+  return result;
+}
 
-  // Get the semver (should be the same across loaders, or use the first available)
-  const semvers = new Set(Object.values(mcVersionData).map(d => d.semver));
-  const semver = semvers.values().next().value;
+/**
+ * Find the exact CurseForge file page URL for a specific mod version + MC version + loader.
+ * Falls back to the generic filtered files page if no exact match is found.
+ */
+function findFileUrl(files, mc, loader, cfVersion, slug) {
+  const loaderTag = LOADER_TAGS[loader];
+  const suffix = `-${cfVersion}.jar`.toLowerCase();
 
-  const loaderLabels = {
-    neoforge: 'NeoForge',
-    forge: 'Forge',
-    fabric: 'Fabric',
-  };
+  for (const file of files) {
+    const name = file.name.toLowerCase();
+    if (!name.endsWith(suffix)) continue;
+    if (!file.versions || !file.versions.includes(mc)) continue;
+    if (loaderTag && file.versions.includes(loaderTag)) return file.url;
+  }
 
-  const parts = [];
-  for (const loader of LOADERS) {
-    const data = mcVersionData[loader];
-    if (!data) continue;
-    const label = loaderLabels[loader];
-    if (data.cfUrl) {
-      parts.push(`[${label}](${data.cfUrl})`);
-    } else {
-      parts.push(label);
+  // Fallback: match by mc version and semver suffix, ignoring loader tag
+  // (handles mods where files don't carry a loader version tag)
+  for (const file of files) {
+    const name = file.name.toLowerCase();
+    if (name.endsWith(suffix) && file.versions && file.versions.includes(mc)) {
+      return file.url;
     }
   }
 
-  return `${semver} (${parts.join(', ')})`;
+  // Last resort: generic files page filtered by MC version
+  return `https://www.curseforge.com/minecraft/mc-mods/${slug}/files?version=${mc}`;
+}
+
+/**
+ * Format a cell value for the table, showing version with per-loader CurseForge links.
+ * Example: "1.29.0-962 ([NeoForge](url1), [Forge](url2), [Fabric](url3))"
+ */
+function formatCell(mcVersionData, mc, slug, cfFiles) {
+  if (!mcVersionData || Object.keys(mcVersionData).length === 0) return 'N/A';
+
+  // Display version: use the first available (should be the same across loaders)
+  const displayVersion = Object.values(mcVersionData)[0].displayVersion;
+
+  const files = cfFiles[slug] || [];
+
+  const parts = [];
+  for (const loader of LOADERS) {
+    const loaderData = mcVersionData[loader];
+    if (!loaderData) continue;
+    const url = findFileUrl(files, mc, loader, loaderData.cfVersion, slug);
+    parts.push(`[${LOADER_TAGS[loader]}](${url})`);
+  }
+
+  return `${displayVersion} (${parts.join(', ')})`;
 }
 
 /**
  * Generate the table rows for all mods.
  */
-function generateTable(modData) {
+function generateTable(modData, cfFiles) {
   const mcHeaders = MC_VERSIONS.map(({ mc, label }) => `MC ${mc} (${label})`);
   const header = `| Mod name | ${mcHeaders.join(' | ')} |`;
   const separator = `| -------- | ${mcHeaders.map(() => '-------').join(' | ')} |`;
@@ -239,11 +224,22 @@ function generateTable(modData) {
 
     const cells = MC_VERSIONS.map(({ mc }) => {
       const mcData = modData[modKey]?.[mc];
-      return formatCell(mcData);
+      return formatCell(mcData, mc, info.slug, cfFiles);
     });
 
     rows.push(`| ${modName} | ${cells.join(' | ')} |`);
   }
+
+  // Totals row: count loader instances per MC version
+  const totalCells = MC_VERSIONS.map(({ mc }) => {
+    let count = 0;
+    for (const modKey of MOD_ORDER) {
+      const mcData = modData[modKey]?.[mc];
+      if (mcData) count += Object.keys(mcData).length;
+    }
+    return `**${count}**`;
+  });
+  rows.push(`| **Total** | ${totalCells.join(' | ')} |`);
 
   return rows.join('\n');
 }
@@ -255,9 +251,6 @@ function updateReadme(table) {
   const readmePath = join(ROOT, 'profile', 'README.md');
   const content = readFileSync(readmePath, 'utf-8');
 
-  // Replace everything from the first table line to just before "TODOs:"
-  // The table starts with "| Mod name" and we replace up to the end of the file
-  // (removing the TODO section as well)
   const tableStart = content.indexOf('| Mod name');
   if (tableStart === -1) {
     throw new Error('Could not find table start in README.md');
@@ -270,16 +263,16 @@ function updateReadme(table) {
 
 async function main() {
   console.log('Collecting mod data from pom.xml files...');
-  const modData = await collectModData();
+  const modData = collectModData();
+
+  console.log('Fetching CurseForge file data...');
+  const cfFiles = await fetchAllCurseForgeData();
 
   console.log('Generating table...');
-  const table = generateTable(modData);
+  const table = generateTable(modData, cfFiles);
 
   console.log('Updating README.md...');
   updateReadme(table);
 }
 
-main().catch(err => {
-  console.error(err);
-  process.exit(1);
-});
+main().catch(err => { console.error(err); process.exit(1); });
