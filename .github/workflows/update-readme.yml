@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  pull_request:
   schedule:
     - cron: "0 6 * * *"
   workflow_dispatch:
@@ -28,6 +29,7 @@ jobs:
         run: node scripts/generate-readme.mjs
 
       - name: Commit and push changes
+        if: github.event_name != 'pull_request'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
