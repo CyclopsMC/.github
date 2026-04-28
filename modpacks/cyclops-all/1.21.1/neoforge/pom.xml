@@ -22,7 +22,7 @@
     <dependency>
       <groupId>org.cyclops.cyclopscore</groupId>
       <artifactId>cyclopscore-1.21.1-neoforge</artifactId>
-      <version>1.29.0-962</version>
+      <version>1.29.1-1018</version>
     </dependency>
 
     <dependency>
@@ -76,7 +76,7 @@
     <dependency>
       <groupId>org.cyclops.integrateddynamics</groupId>
       <artifactId>integrateddynamics-1.21.1-neoforge</artifactId>
-      <version>1.32.5-1784</version>
+      <version>1.32.6-1818</version>
     </dependency>
     
     <dependency>
