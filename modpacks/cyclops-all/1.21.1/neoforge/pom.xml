@@ -100,7 +100,7 @@
     <dependency>
       <groupId>org.cyclops.integratedscripting</groupId>
       <artifactId>integratedscripting-1.21.1-neoforge</artifactId>
-      <version>1.0.21-339</version>
+      <version>1.0.22-370</version>
     </dependency>
     
     <dependency>
@@ -118,7 +118,7 @@
     <dependency>
       <groupId>org.cyclops.evilcraft</groupId>
       <artifactId>evilcraft-1.21.1-neoforge</artifactId>
-      <version>1.2.86-910</version>
+      <version>1.2.87-930</version>
     </dependency>
   
   </dependencies>
