@@ -76,7 +76,7 @@
     <dependency>
       <groupId>org.cyclops.integrateddynamics</groupId>
       <artifactId>integrateddynamics-1.21.1-neoforge</artifactId>
-      <version>1.33.1-1839</version>
+      <version>1.33.2-1845</version>
     </dependency>
     
     <dependency>
