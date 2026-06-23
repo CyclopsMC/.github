@@ -47,6 +47,7 @@ const MC_VERSIONS = [
   { mc: '1.20.1', label: '`1.20-lts`' },
   { mc: '1.21.1', label: '`1.21-lts`' },
   { mc: '26.1.2', label: '`26`' },
+  { mc: '26.2', label: '`26`' },
 ];
 
 const LOADERS = ['neoforge', 'forge', 'fabric'];

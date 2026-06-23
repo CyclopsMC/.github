@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+           http://maven.apache.org/POM/4.0.0
+           http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.cyclops.packs</groupId>
+  <artifactId>cyclops-all-fabric</artifactId>
+  <version>26.2</version>
+  <packaging>pom</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.cyclops.cyclopscore</groupId>
+      <artifactId>cyclopscore-26.2-fabric</artifactId>
+      <version>1.30.0-1038</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.cyclops.flopper</groupId>
+      <artifactId>flopper-26.2-fabric</artifactId>
+      <version>1.1.9-233</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.structuredcrafting</groupId>
+      <artifactId>structuredcrafting-26.2-fabric</artifactId>
+      <version>0.2.14-212</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.cyclops.capabilityproxy</groupId>
+      <artifactId>capabilityproxy-26.2-fabric</artifactId>
+      <version>2.2.3-214</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.everlastingabilities</groupId>
+      <artifactId>everlastingabilities-26.2-fabric</artifactId>
+      <version>2.5.10-387</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.energeticsheep</groupId>
+      <artifactId>energeticsheep-26.2-fabric</artifactId>
+      <version>1.2.0-250</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.colossalchests</groupId>
+      <artifactId>colossalchests-26.2-fabric</artifactId>
+      <version>1.8.16-260</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.iconexporter</groupId>
+      <artifactId>iconexporter-26.2-fabric</artifactId>
+      <version>1.4.2-207</version>
+    </dependency>
+
+  </dependencies>
+</project>

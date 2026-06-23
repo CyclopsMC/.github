@@ -1,0 +1,130 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+           http://maven.apache.org/POM/4.0.0
+           http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.cyclops.packs</groupId>
+  <artifactId>cyclops-all-neoforge</artifactId>
+  <version>26.2</version>
+  <packaging>pom</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.cyclops.cyclopscore</groupId>
+      <artifactId>cyclopscore-26.2-neoforge</artifactId>
+      <version>1.30.0-1038</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.cyclops.flopper</groupId>
+      <artifactId>flopper-26.2-neoforge</artifactId>
+      <version>1.1.9-233</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.structuredcrafting</groupId>
+      <artifactId>structuredcrafting-26.2-neoforge</artifactId>
+      <version>0.2.14-212</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.cyclops.commoncapabilities</groupId>
+      <artifactId>commoncapabilities-26.2-neoforge</artifactId>
+      <version>2.11.8-360</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.cyclops.capabilityproxy</groupId>
+      <artifactId>capabilityproxy-26.2-neoforge</artifactId>
+      <version>2.2.3-214</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.everlastingabilities</groupId>
+      <artifactId>everlastingabilities-26.2-neoforge</artifactId>
+      <version>2.5.10-387</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.energeticsheep</groupId>
+      <artifactId>energeticsheep-26.2-neoforge</artifactId>
+      <version>1.2.0-250</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.colossalchests</groupId>
+      <artifactId>colossalchests-26.2-neoforge</artifactId>
+      <version>1.8.16-260</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.iconexporter</groupId>
+      <artifactId>iconexporter-26.2-neoforge</artifactId>
+      <version>1.4.2-207</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.integrateddynamics</groupId>
+      <artifactId>integrateddynamics-26.2-neoforge</artifactId>
+      <version>1.33.4-1859</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.integratedtunnels</groupId>
+      <artifactId>integratedtunnels-26.2-neoforge</artifactId>
+      <version>1.9.6-640</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.integratedcrafting</groupId>
+      <artifactId>integratedcrafting-26.2-neoforge</artifactId>
+      <version>1.4.7-586</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.integratedterminals</groupId>
+      <artifactId>integratedterminals-26.2-neoforge</artifactId>
+      <version>1.7.0-788</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.integratedscripting</groupId>
+      <artifactId>integratedscripting-26.2-neoforge</artifactId>
+      <version>1.0.22-378</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.cyclops.integratedrest</groupId>
+      <artifactId>integratedrest-26.2-neoforge</artifactId>
+      <version>1.1.15-198</version>
+    </dependency>
+    
+    <!--><dependency>
+      <groupId>org.cyclops.integratedmekanism</groupId>
+      <artifactId>integratedmekanism-26.2-neoforge</artifactId>
+      <version>1.0.3-89</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>mekanism</groupId>
+      <artifactId>Mekanism</artifactId>
+      <version>1.21.1-10.7.17.83</version>
+      <classifier>all</classifier>
+    </dependency>-->
+    
+    <dependency>
+      <groupId>org.cyclops.evilcraft</groupId>
+      <artifactId>evilcraft-26.2-neoforge</artifactId>
+      <version>1.2.98-965</version>
+    </dependency>
+
+    <!--<dependency>
+      <groupId>com.refinedmods.refinedstorage</groupId>
+      <artifactId>refinedstorage-neoforge</artifactId>
+      <version>3.2.0</version>
+    </dependency>-->
+  </dependencies>
+</project>
