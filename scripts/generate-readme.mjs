@@ -30,6 +30,7 @@ const MOD_INFO = {
   integratedscripting:{ slug: 'integrated-scripting', name: 'IntegratedScripting', github: 'IntegratedScripting', modrinth: 'uDJkuFRe' },
   integratedrest:    { slug: 'integrated-rest',      name: 'IntegratedREST',      github: 'IntegratedREST',      modrinth: 'ovubcV3F' },
   integratedmekanism:{ slug: 'integrated-mekanism',  name: 'IntegratedMekanism',  github: 'IntegratedMekanism',  modrinth: 'NknNmkiU' },
+  integratednbt:     { slug: 'integrated-nbt',       name: 'IntegratedNBT',       github: 'IntegratedNBT',       modrinth: '2PVU5Uck' },
   evilcraft:         { slug: 'evilcraft',            name: 'EvilCraft',           github: 'EvilCraft',           modrinth: '3ANq2btA' },
 };
 
@@ -38,7 +39,7 @@ const MOD_ORDER = [
   'cyclopscore', 'flopper', 'structuredcrafting', 'commoncapabilities',
   'capabilityproxy', 'everlastingabilities', 'energeticsheep', 'colossalchests',
   'iconexporter', 'integrateddynamics', 'integratedtunnels', 'integratedcrafting',
-  'integratedterminals', 'integratedscripting', 'integratedrest', 'integratedmekanism',
+  'integratedterminals', 'integratedscripting', 'integratedrest', 'integratedmekanism', 'integratednbt',
   'evilcraft',
 ];
 
