@@ -24,55 +24,55 @@
     <dependency>
       <groupId>org.cyclops.cyclopscore</groupId>
       <artifactId>cyclopscore</artifactId>
-      <version>1.20.1-1.22.1-1016</version>
+      <version>1.20.1-1.22.1-1044</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.flopper</groupId>
       <artifactId>flopper</artifactId>
-      <version>1.20.1-1.1.5-212</version>
+      <version>1.20.1-1.1.5-235</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.structuredcrafting</groupId>
       <artifactId>structuredcrafting</artifactId>
-      <version>1.20.1-0.2.7-190</version>
+      <version>1.20.1-0.2.7-214</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.commoncapabilities</groupId>
       <artifactId>commoncapabilities</artifactId>
-      <version>1.20.1-2.9.11-323</version>
+      <version>1.20.1-2.9.11-362</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.capabilityproxy</groupId>
       <artifactId>capabilityproxy</artifactId>
-      <version>1.20.1-2.1.11-188</version>
+      <version>1.20.1-2.1.11-216</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.everlastingabilities</groupId>
       <artifactId>everlastingabilities</artifactId>
-      <version>1.20.1-2.3.1-320</version>
+      <version>1.20.1-2.3.1-389</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.energeticsheep</groupId>
       <artifactId>energeticsheep</artifactId>
-      <version>1.20.1-1.1.14-190</version>
+      <version>1.20.1-1.1.14-252</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.colossalchests</groupId>
       <artifactId>colossalchests</artifactId>
-      <version>1.20.1-1.8.7-224</version>
+      <version>1.20.1-1.8.7-262</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.iconexporter</groupId>
       <artifactId>iconexporter</artifactId>
-      <version>1.20.1-1.4.0-175</version>
+      <version>1.20.1-1.4.0-209</version>
     </dependency>
 
     <dependency>
@@ -84,31 +84,31 @@
     <dependency>
       <groupId>org.cyclops.integratedtunnels</groupId>
       <artifactId>integratedtunnels</artifactId>
-      <version>1.20.1-1.9.3-605</version>
+      <version>1.20.1-1.9.3-665</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.integratedcrafting</groupId>
       <artifactId>integratedcrafting</artifactId>
-      <version>1.20.1-1.4.6-565</version>
+      <version>1.20.1-1.4.7-609</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.integratedterminals</groupId>
       <artifactId>integratedterminals</artifactId>
-      <version>1.20.1-1.6.20-734</version>
+      <version>1.20.1-1.6.20-796</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.integratedscripting</groupId>
       <artifactId>integratedscripting</artifactId>
-      <version>1.20.1-1.0.17-368</version>
+      <version>1.20.1-1.0.18-395</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.integratedrest</groupId>
       <artifactId>integratedrest</artifactId>
-      <version>1.20.1-1.1.11-183</version>
+      <version>1.20.1-1.1.11-204</version>
     </dependency>
 
     <dependency>
@@ -120,13 +120,13 @@
     <dependency>
       <groupId>org.cyclops.integratednbt</groupId>
       <artifactId>integratednbt</artifactId>
-      <version>1.20.1-1.6.1-19</version>
+      <version>1.20.1-1.6.2-53</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.evilcraft</groupId>
       <artifactId>evilcraft</artifactId>
-      <version>1.20.1-1.2.60-928</version>
+      <version>1.20.1-1.3.0-1010</version>
     </dependency>
   </dependencies>
 </project>
