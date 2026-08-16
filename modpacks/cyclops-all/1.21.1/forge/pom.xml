@@ -34,7 +34,7 @@
     <dependency>
       <groupId>org.cyclops.structuredcrafting</groupId>
       <artifactId>structuredcrafting-1.21.1-forge</artifactId>
-      <version>0.2.13-215</version>
+      <version>0.2.13-218</version>
     </dependency>
   
     <dependency>

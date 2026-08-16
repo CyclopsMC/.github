@@ -24,7 +24,7 @@
     <dependency>
       <groupId>org.cyclops.cyclopscore</groupId>
       <artifactId>cyclopscore</artifactId>
-      <version>1.20.1-1.22.1-1044</version>
+      <version>1.20.1-1.22.1-1070</version>
     </dependency>
 
     <dependency>
