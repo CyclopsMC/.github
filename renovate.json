@@ -18,9 +18,11 @@
   ],
   "packageRules": [
     {
+      "description": "No workflow runs on renovate/* branches, so branch automerge would wait forever on a pending branch status. Merge without tests; the push run on master regenerates the README.",
       "matchManagers": ["github-actions"],
       "automerge": true,
-      "automergeType": "branch"
+      "automergeType": "branch",
+      "ignoreTests": true
     },
     {
       "matchManagers": ["github-actions"],
@@ -28,9 +30,11 @@
       "enabled": true
     },
     {
+      "description": "No workflow runs on renovate/* branches, so branch automerge would wait forever on a pending branch status. Merge without tests; the push run on master regenerates the README.",
       "matchManagers": ["maven"],
       "automerge": true,
-      "automergeType": "branch"
+      "automergeType": "branch",
+      "ignoreTests": true
     },
     {
       "matchManagers": ["maven"],
