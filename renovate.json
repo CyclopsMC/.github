@@ -8,6 +8,12 @@
     {
       "matchHost": "https://maven.pkg.github.com/CyclopsMC/packages",
       "token": "{{ secrets.RENOVATE_GITHUB_COM_TOKEN }}"
+    },
+    {
+      "description": "Backstop only, not working protection. abortOnError is already falsy by default and abortIgnoreStatusCodes is only read when it is true, so this entry changes nothing by itself. The registryUrls rules below are the actual fix.",
+      "matchHost": "repo.maven.apache.org",
+      "abortOnError": false,
+      "abortIgnoreStatusCodes": [429]
     }
   ],
   "packageRules": [
@@ -28,8 +34,26 @@
     },
     {
       "matchManagers": ["maven"],
-      "matchPackagePrefixes": ["org.cyclops."],
+      "matchPackageNames": ["org.cyclops.{/,}**"],
       "groupName": "Cyclops packages"
+    },
+    {
+      "description": "Renovate appends Maven Central to every Maven dependency regardless of the repositories declared in the poms, and a 429 from Central raises an ExternalHostError that can abort the run. Pinning each groupId to the registry that actually serves it keeps Central out of the lookup path.",
+      "matchManagers": ["maven"],
+      "matchPackageNames": ["org.cyclops.{/,}**"],
+      "registryUrls": ["https://maven.pkg.github.com/CyclopsMC/packages"]
+    },
+    {
+      "description": "Not active today, these dependencies are commented out in the poms. Kept so re-enabling them does not reintroduce a Central lookup.",
+      "matchManagers": ["maven"],
+      "matchPackageNames": ["mekanism{/,}**"],
+      "registryUrls": ["https://modmaven.dev/"]
+    },
+    {
+      "description": "Not active today, commented out in the 26.2 neoforge pom. refinedstorage-neoforge resolves only from creeperhost.",
+      "matchManagers": ["maven"],
+      "matchPackageNames": ["com.refinedmods.refinedstorage{/,}**"],
+      "registryUrls": ["https://maven.creeperhost.net/"]
     }
   ]
 }
