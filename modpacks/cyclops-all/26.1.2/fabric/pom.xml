@@ -15,49 +15,49 @@
     <dependency>
       <groupId>org.cyclops.cyclopscore</groupId>
       <artifactId>cyclopscore-26.1.2-fabric</artifactId>
-      <version>1.29.5-1012</version>
+      <version>1.31.0-1141</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.flopper</groupId>
       <artifactId>flopper-26.1.2-fabric</artifactId>
-      <version>1.1.9-229</version>
+      <version>1.1.9-244</version>
     </dependency>
     
     <dependency>
       <groupId>org.cyclops.structuredcrafting</groupId>
       <artifactId>structuredcrafting-26.1.2-fabric</artifactId>
-      <version>0.2.14-209</version>
+      <version>0.2.15-231</version>
     </dependency>
 
     <dependency>
       <groupId>org.cyclops.capabilityproxy</groupId>
       <artifactId>capabilityproxy-26.1.2-fabric</artifactId>
-      <version>2.2.3-210</version>
+      <version>2.2.3-230</version>
     </dependency>
     
     <dependency>
       <groupId>org.cyclops.everlastingabilities</groupId>
       <artifactId>everlastingabilities-26.1.2-fabric</artifactId>
-      <version>2.5.9-382</version>
+      <version>2.5.10-398</version>
     </dependency>
     
     <dependency>
       <groupId>org.cyclops.energeticsheep</groupId>
       <artifactId>energeticsheep-26.1.2-fabric</artifactId>
-      <version>1.1.20-236</version>
+      <version>1.2.0-262</version>
     </dependency>
     
     <dependency>
       <groupId>org.cyclops.colossalchests</groupId>
       <artifactId>colossalchests-26.1.2-fabric</artifactId>
-      <version>1.8.15-254</version>
+      <version>1.9.1-302</version>
     </dependency>
     
     <dependency>
       <groupId>org.cyclops.iconexporter</groupId>
       <artifactId>iconexporter-26.1.2-fabric</artifactId>
-      <version>1.4.1-199</version>
+      <version>1.4.2-223</version>
     </dependency>
 
   </dependencies>
