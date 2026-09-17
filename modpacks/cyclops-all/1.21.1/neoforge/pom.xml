@@ -88,7 +88,7 @@
     <dependency>
       <groupId>org.cyclops.integratedcrafting</groupId>
       <artifactId>integratedcrafting-1.21.1-neoforge</artifactId>
-      <version>1.7.1-771</version>
+      <version>1.7.1-792</version>
     </dependency>
     
     <dependency>
@@ -112,7 +112,7 @@
     <dependency>
       <groupId>org.cyclops.integratednbt</groupId>
       <artifactId>integratednbt-1.21.1-neoforge</artifactId>
-      <version>1.6.2-66</version>
+      <version>1.6.2-74</version>
     </dependency>
 
     <dependency>
