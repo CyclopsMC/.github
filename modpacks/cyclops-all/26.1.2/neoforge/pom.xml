@@ -81,7 +81,7 @@
     <dependency>
       <groupId>org.cyclops.integratedcrafting</groupId>
       <artifactId>integratedcrafting-26.1.2-neoforge</artifactId>
-      <version>1.7.0-767</version>
+      <version>1.7.0-794</version>
     </dependency>
     
     <dependency>
