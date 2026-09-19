@@ -82,7 +82,7 @@
     <dependency>
       <groupId>org.cyclops.integratedtunnels</groupId>
       <artifactId>integratedtunnels-1.21.1-neoforge</artifactId>
-      <version>1.12.0-777</version>
+      <version>1.12.0-779</version>
     </dependency>
     
     <dependency>
