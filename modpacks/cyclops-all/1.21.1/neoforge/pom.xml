@@ -76,19 +76,19 @@
     <dependency>
       <groupId>org.cyclops.integrateddynamics</groupId>
       <artifactId>integrateddynamics-1.21.1-neoforge</artifactId>
-      <version>1.37.1-2122</version>
+      <version>1.37.1-2135</version>
     </dependency>
     
     <dependency>
       <groupId>org.cyclops.integratedtunnels</groupId>
       <artifactId>integratedtunnels-1.21.1-neoforge</artifactId>
-      <version>1.12.0-779</version>
+      <version>1.12.0-786</version>
     </dependency>
     
     <dependency>
       <groupId>org.cyclops.integratedcrafting</groupId>
       <artifactId>integratedcrafting-1.21.1-neoforge</artifactId>
-      <version>1.7.1-792</version>
+      <version>1.7.2-797</version>
     </dependency>
     
     <dependency>
@@ -112,7 +112,7 @@
     <dependency>
       <groupId>org.cyclops.integratednbt</groupId>
       <artifactId>integratednbt-1.21.1-neoforge</artifactId>
-      <version>1.6.2-74</version>
+      <version>1.6.3-79</version>
     </dependency>
 
     <dependency>
