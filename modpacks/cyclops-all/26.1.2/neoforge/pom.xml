@@ -124,7 +124,7 @@
     <dependency>
       <groupId>org.cyclops.evilcraft</groupId>
       <artifactId>evilcraft-26.1.2-neoforge</artifactId>
-      <version>1.2.105-1094</version>
+      <version>1.2.105-1107</version>
     </dependency>
   </dependencies>
 </project>
