@@ -4,6 +4,10 @@
     "config:recommended"
   ],
   "enabledManagers": ["maven", "github-actions"],
+  "ignorePaths": [
+    "modpacks/cyclops-all/26.1.1/**",
+    "modpacks/cyclops-all/26.2/**"
+  ],
   "hostRules": [
     {
       "matchHost": "https://maven.pkg.github.com/CyclopsMC/packages",
@@ -54,7 +58,7 @@
       "registryUrls": ["https://modmaven.dev/"]
     },
     {
-      "description": "Not active today, commented out in the 26.2 neoforge pom. refinedstorage-neoforge resolves only from creeperhost.",
+      "description": "Not active today, commented out in the 26.3 neoforge pom. refinedstorage-neoforge resolves only from creeperhost.",
       "matchManagers": ["maven"],
       "matchPackageNames": ["com.refinedmods.refinedstorage{/,}**"],
       "registryUrls": ["https://maven.creeperhost.net/"]
