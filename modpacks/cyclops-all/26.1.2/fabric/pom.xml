@@ -15,7 +15,7 @@
     <dependency>
       <groupId>org.cyclops.cyclopscore</groupId>
       <artifactId>cyclopscore-26.1.2-fabric</artifactId>
-      <version>1.31.0-1141</version>
+      <version>1.31.0-1170</version>
     </dependency>
 
     <dependency>
