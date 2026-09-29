@@ -51,7 +51,7 @@
     <dependency>
       <groupId>org.cyclops.energeticsheep</groupId>
       <artifactId>energeticsheep-26.3-neoforge</artifactId>
-      <version>1.2.0-279</version>
+      <version>1.2.0-282</version>
     </dependency>
     
     <dependency>
