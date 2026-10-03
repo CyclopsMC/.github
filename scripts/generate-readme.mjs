@@ -76,6 +76,9 @@ function parsePom(pomPath, loader, mc) {
     return null;
   }
 
+  // Ignore commented-out dependencies
+  content = content.replace(/<!--[\s\S]*?-->/g, '');
+
   const deps = {};
   const depRegex = /<dependency>\s*<groupId>(org\.cyclops\.(\w+))<\/groupId>\s*<artifactId>([^<]+)<\/artifactId>\s*<version>([^<]+)<\/version>/g;
   let match;
