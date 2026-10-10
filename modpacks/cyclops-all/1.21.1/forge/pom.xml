@@ -64,7 +64,7 @@
     <dependency>
       <groupId>org.cyclops.colossalchests2</groupId>
       <artifactId>colossalchests2-1.21.1-forge</artifactId>
-      <version>1.0.0-15</version>
+      <version>1.0.0-18</version>
     </dependency>
     
     <dependency>
