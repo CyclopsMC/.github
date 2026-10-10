@@ -15,7 +15,7 @@
     <dependency>
       <groupId>org.cyclops.cyclopscore</groupId>
       <artifactId>cyclopscore-26.3-neoforge</artifactId>
-      <version>1.30.0-1196</version>
+      <version>1.30.0-1202</version>
     </dependency>
 
     <dependency>
@@ -75,7 +75,7 @@
     <dependency>
       <groupId>org.cyclops.integratedtunnels</groupId>
       <artifactId>integratedtunnels-26.3-neoforge</artifactId>
-      <version>1.9.6-804</version>
+      <version>1.9.6-813</version>
     </dependency>
     
     <dependency>
