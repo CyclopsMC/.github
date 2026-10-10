@@ -22,6 +22,7 @@ const MOD_INFO = {
   everlastingabilities:{ slug: 'everlastingabilities', name: 'EverlastingAbilities', github: 'EverlastingAbilities', modrinth: 'xDwJf4pi' },
   energeticsheep:    { slug: 'energeticsheep',       name: 'EnergeticSheep',      github: 'EnergeticSheep',      modrinth: 'TC6LFnue' },
   colossalchests:    { slug: 'colossal-chests',      name: 'ColossalChests',      github: 'ColossalChests',      modrinth: 'V8HM9qmm' },
+  colossalchests2:   { slug: 'colossal-chests-2',    name: 'ColossalChests2',     github: 'ColossalChests2',     modrinth: 'cdpRozK9' },
   iconexporter:      { slug: 'iconexporter',         name: 'IconExporter',        github: 'IconExporter',        modrinth: '8KCmS7Bd' },
   integrateddynamics:{ slug: 'integrated-dynamics',  name: 'IntegratedDynamics',  github: 'IntegratedDynamics',  modrinth: 'yYzdQHJI' },
   integratedtunnels: { slug: 'integrated-tunnels',   name: 'IntegratedTunnels',   github: 'IntegratedTunnels',   modrinth: 'Etqy1Omb' },
@@ -37,7 +38,7 @@ const MOD_INFO = {
 // Canonical mod display order
 const MOD_ORDER = [
   'cyclopscore', 'flopper', 'structuredcrafting', 'commoncapabilities',
-  'capabilityproxy', 'everlastingabilities', 'energeticsheep', 'colossalchests',
+  'capabilityproxy', 'everlastingabilities', 'energeticsheep', 'colossalchests', 'colossalchests2',
   'iconexporter', 'integrateddynamics', 'integratedtunnels', 'integratedcrafting',
   'integratedterminals', 'integratedscripting', 'integratedrest', 'integratedmekanism', 'integratednbt',
   'evilcraft',
