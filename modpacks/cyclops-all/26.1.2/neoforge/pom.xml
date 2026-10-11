@@ -63,7 +63,7 @@
     <dependency>
       <groupId>org.cyclops.colossalchests2</groupId>
       <artifactId>colossalchests2-26.1.2-neoforge</artifactId>
-      <version>1.0.0-29</version>
+      <version>1.0.0-46</version>
     </dependency>
     
     <dependency>
