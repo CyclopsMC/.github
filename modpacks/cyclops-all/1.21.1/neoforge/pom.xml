@@ -70,7 +70,7 @@
     <dependency>
       <groupId>org.cyclops.colossalchests2</groupId>
       <artifactId>colossalchests2-1.21.1-neoforge</artifactId>
-      <version>1.0.0-69</version>
+      <version>1.0.0-76</version>
     </dependency>
     
     <dependency>
@@ -94,13 +94,13 @@
     <dependency>
       <groupId>org.cyclops.integratedcrafting</groupId>
       <artifactId>integratedcrafting-1.21.1-neoforge</artifactId>
-      <version>1.7.2-829</version>
+      <version>1.7.2-840</version>
     </dependency>
     
     <dependency>
       <groupId>org.cyclops.integratedterminals</groupId>
       <artifactId>integratedterminals-1.21.1-neoforge</artifactId>
-      <version>1.10.0-1047</version>
+      <version>1.10.0-1059</version>
     </dependency>
     
     <dependency>
