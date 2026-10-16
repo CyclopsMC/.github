@@ -81,7 +81,7 @@
     <dependency>
       <groupId>org.cyclops.integratedtunnels</groupId>
       <artifactId>integratedtunnels-26.3-neoforge</artifactId>
-      <version>1.9.6-813</version>
+      <version>1.9.6-821</version>
     </dependency>
     
     <dependency>
@@ -130,7 +130,7 @@
     <dependency>
       <groupId>org.cyclops.evilcraft</groupId>
       <artifactId>evilcraft-26.3-neoforge</artifactId>
-      <version>1.2.98-1143</version>
+      <version>1.2.98-1166</version>
     </dependency>
 
     <!--<dependency>
