@@ -82,7 +82,7 @@
     <dependency>
       <groupId>org.cyclops.integrateddynamics</groupId>
       <artifactId>integrateddynamics-1.21.1-neoforge</artifactId>
-      <version>1.38.0-2288</version>
+      <version>1.38.1-2291</version>
     </dependency>
     
     <dependency>
@@ -94,13 +94,13 @@
     <dependency>
       <groupId>org.cyclops.integratedcrafting</groupId>
       <artifactId>integratedcrafting-1.21.1-neoforge</artifactId>
-      <version>1.7.2-852</version>
+      <version>1.8.0-856</version>
     </dependency>
     
     <dependency>
       <groupId>org.cyclops.integratedterminals</groupId>
       <artifactId>integratedterminals-1.21.1-neoforge</artifactId>
-      <version>1.10.0-1085</version>
+      <version>1.11.1-1095</version>
     </dependency>
     
     <dependency>
