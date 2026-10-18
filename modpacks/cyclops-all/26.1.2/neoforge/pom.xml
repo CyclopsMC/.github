@@ -93,7 +93,7 @@
     <dependency>
       <groupId>org.cyclops.integratedterminals</groupId>
       <artifactId>integratedterminals-26.1.2-neoforge</artifactId>
-      <version>1.11.1-1097</version>
+      <version>1.11.1-1100</version>
     </dependency>
     
     <dependency>
