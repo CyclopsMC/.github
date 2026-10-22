@@ -15,7 +15,7 @@
     <dependency>
       <groupId>org.cyclops.cyclopscore</groupId>
       <artifactId>cyclopscore-26.1.2-neoforge</artifactId>
-      <version>1.31.3-1201</version>
+      <version>1.31.3-1207</version>
     </dependency>
 
     <dependency>
@@ -130,7 +130,7 @@
     <dependency>
       <groupId>org.cyclops.evilcraft</groupId>
       <artifactId>evilcraft-26.1.2-neoforge</artifactId>
-      <version>1.2.108-1169</version>
+      <version>1.2.108-1172</version>
     </dependency>
   </dependencies>
 </project>
