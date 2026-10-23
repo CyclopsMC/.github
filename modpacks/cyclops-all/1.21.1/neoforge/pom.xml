@@ -106,7 +106,7 @@
     <dependency>
       <groupId>org.cyclops.integratedscripting</groupId>
       <artifactId>integratedscripting-1.21.1-neoforge</artifactId>
-      <version>1.0.27-699</version>
+      <version>1.0.27-708</version>
     </dependency>
     
     <dependency>
