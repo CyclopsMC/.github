@@ -94,7 +94,7 @@
     <dependency>
       <groupId>org.cyclops.integratedcrafting</groupId>
       <artifactId>integratedcrafting-1.21.1-neoforge</artifactId>
-      <version>1.8.0-870</version>
+      <version>1.8.0-876</version>
     </dependency>
     
     <dependency>
