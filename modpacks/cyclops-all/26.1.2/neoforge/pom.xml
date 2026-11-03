@@ -21,7 +21,7 @@
     <dependency>
       <groupId>org.cyclops.flopper</groupId>
       <artifactId>flopper-26.1.2-neoforge</artifactId>
-      <version>1.1.9-244</version>
+      <version>1.1.10-271</version>
     </dependency>
     
     <dependency>
