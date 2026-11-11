@@ -111,7 +111,7 @@
     <dependency>
       <groupId>org.cyclops.integratednbt</groupId>
       <artifactId>integratednbt-26.3-neoforge</artifactId>
-      <version>1.6.1-87</version>
+      <version>1.6.1-91</version>
     </dependency>
 
     <!--><dependency>
