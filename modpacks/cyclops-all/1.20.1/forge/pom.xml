@@ -102,7 +102,7 @@
     <dependency>
       <groupId>org.cyclops.integratedscripting</groupId>
       <artifactId>integratedscripting</artifactId>
-      <version>1.20.1-1.0.19-481</version>
+      <version>1.20.1-1.0.19-737</version>
     </dependency>
 
     <dependency>
