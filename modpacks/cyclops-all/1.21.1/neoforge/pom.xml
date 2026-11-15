@@ -22,7 +22,7 @@
     <dependency>
       <groupId>org.cyclops.cyclopscore</groupId>
       <artifactId>cyclopscore-1.21.1-neoforge</artifactId>
-      <version>1.30.1-1209</version>
+      <version>1.30.2-1247</version>
     </dependency>
 
     <dependency>
@@ -70,7 +70,7 @@
     <dependency>
       <groupId>org.cyclops.colossalchests2</groupId>
       <artifactId>colossalchests2-1.21.1-neoforge</artifactId>
-      <version>1.0.0-81</version>
+      <version>1.0.1-83</version>
     </dependency>
     
     <dependency>
@@ -82,7 +82,7 @@
     <dependency>
       <groupId>org.cyclops.integrateddynamics</groupId>
       <artifactId>integrateddynamics-1.21.1-neoforge</artifactId>
-      <version>1.39.0-2442</version>
+      <version>1.39.1-2451</version>
     </dependency>
     
     <dependency>
@@ -100,13 +100,13 @@
     <dependency>
       <groupId>org.cyclops.integratedterminals</groupId>
       <artifactId>integratedterminals-1.21.1-neoforge</artifactId>
-      <version>1.11.1-1095</version>
+      <version>1.11.2-1108</version>
     </dependency>
     
     <dependency>
       <groupId>org.cyclops.integratedscripting</groupId>
       <artifactId>integratedscripting-1.21.1-neoforge</artifactId>
-      <version>1.1.0-736</version>
+      <version>1.1.1-741</version>
     </dependency>
     
     <dependency>
@@ -130,7 +130,7 @@
     <dependency>
       <groupId>org.cyclops.evilcraft</groupId>
       <artifactId>evilcraft-1.21.1-neoforge</artifactId>
-      <version>1.2.100-1187</version>
+      <version>1.2.101-1219</version>
     </dependency>
   
   </dependencies>
