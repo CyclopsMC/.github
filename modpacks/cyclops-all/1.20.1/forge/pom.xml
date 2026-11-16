@@ -96,7 +96,7 @@
     <dependency>
       <groupId>org.cyclops.integratedterminals</groupId>
       <artifactId>integratedterminals</artifactId>
-      <version>1.20.1-1.7.1-1106</version>
+      <version>1.20.1-1.7.1-1117</version>
     </dependency>
 
     <dependency>
